@@ -35,7 +35,7 @@ class _CounterWidgetState extends State<CounterWidget> {
       appBar: AppBar(
         title: const Text('Rocket Launch Controller'),
       ),
-//set up the widget alignement
+      //set up the widget alignement
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -49,6 +49,7 @@ class _CounterWidgetState extends State<CounterWidget> {
               ),
             ),
           ),
+
           Slider(
             min: 0,
             max: 100,
@@ -60,6 +61,48 @@ class _CounterWidgetState extends State<CounterWidget> {
             },
             activeColor: Colors.blue,
             inactiveColor: Colors.red,
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_counter > 0) _counter--;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                ),
+                child: const Text("ABORT"),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_counter < 100) _counter++;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                ),
+                child: const Text("IGNITE"),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _counter = 0;
+                  });
+                } ,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                ),
+                child: const Text("RESET"),
+              ),
+
+            ],
           ),
         ],
       ),

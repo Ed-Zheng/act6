@@ -29,6 +29,23 @@ class _CounterWidgetState extends State<CounterWidget> {
   //set counter value
   int _counter = 0;
 
+  void _liftoff() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("LIFTOFF!"),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +103,12 @@ class _CounterWidgetState extends State<CounterWidget> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    if (_counter < 100) _counter++;
+                    if (_counter < 100) {
+                      _counter++;
+                      if (_counter == 100) {
+                        _liftoff();
+                      }
+                    }
                   });
                 },
                 style: ElevatedButton.styleFrom(

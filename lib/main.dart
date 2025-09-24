@@ -34,7 +34,7 @@ class _CounterWidgetState extends State<CounterWidget> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("LIFTOFF!!!"),
+          title: const Text("🚀 LIFTOFF!!! 🚀"),
           content: const Text("You launched the rocket!!!"),
           actions: [
             TextButton(

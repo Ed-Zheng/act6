@@ -58,16 +58,22 @@ class _CounterWidgetState extends State<CounterWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Container(
-              color: const Color.fromARGB(255, 0, 0, 0),
-              child: Text(
-                //to displays current number
-                '$_counter',
-                style: TextStyle(
-                  fontSize: 50.0,
-                  color: _counter == 0
-                    ? Colors.red
-                    : (_counter >= 50 ? Colors.green : Colors.orange)
+            child: ClipOval(
+              child: Container(
+                color: const Color.fromARGB(255, 0, 0, 0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40.0, // makes it wider → oval
+                  vertical: 20.0,   // makes it taller
+                ),
+                child: Text(
+                  //to displays current number
+                  '$_counter',
+                  style: TextStyle(
+                    fontSize: 50.0,
+                    color: _counter == 0
+                        ? Colors.red
+                        : (_counter >= 50 ? Colors.green : Colors.orange)
+                  ),
                 ),
               ),
             ),

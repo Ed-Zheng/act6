@@ -41,11 +41,16 @@ class _CounterWidgetState extends State<CounterWidget> {
         children: [
           Center(
             child: Container(
-              color: Colors.blue,
+              color: const Color.fromARGB(255, 0, 0, 0),
               child: Text(
                 //to displays current number
                 '$_counter',
-                style: TextStyle(fontSize: 50.0),
+                style: TextStyle(
+                  fontSize: 50.0,
+                  color: _counter == 0
+                    ? Colors.red
+                    : (_counter >= 50 ? Colors.green : Colors.orange)
+                ),
               ),
             ),
           ),
